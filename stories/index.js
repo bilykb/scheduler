@@ -34,7 +34,7 @@ storiesOf("Button", module)
   .add("Selected", () => <DayListItem name="Monday" spots={5} selected />) 
   .add("Full", () => <DayListItem name="Monday" spots={0} />)
   .add("Clickable", () => (
-    <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} />
+    <DayListItem name="Tuesday" onChange={action("setDay")} spots={5} />
   ));
 
   const days = [
