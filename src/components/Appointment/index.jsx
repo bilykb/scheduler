@@ -1,9 +1,13 @@
 import React from "react";
 import "./styles.scss"
+export {Empty} from "./Empty";
+export {Header} from "./Header";
 
-export default function Appointment(props) {
+export function Appointment(props) {
 
   return (
     <article className="appointment"></article>
   )
 }
+
+export default Appointment;
