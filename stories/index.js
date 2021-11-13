@@ -1,7 +1,7 @@
 import React from "react";
 
-import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
+import {storiesOf} from "@storybook/react";
+import {action} from "@storybook/addon-actions";
 import "index.scss";
 
 import Button from "/src/components/Button";
@@ -9,7 +9,7 @@ import DayListItem from "/src/components/DayListItem";
 import DayList from "/src/components/DayList";
 import InterviewerListItem from '/src/components/InterviewerListItem';
 import InterviewerList from '/src/components/InterviewerList';
-import Appointment from "components/Appointment"
+import {Header, Empty, Appointment} from "components/Appointment";
 
 storiesOf("Button", module)
   .addParameters({
@@ -140,6 +140,13 @@ storiesOf("DayList", module)
         })
         .add("Appointment", () => <Appointment />)
         .add("Appointment with Time", () => (
-        <Appointment time="12pm" 
-        />
+          <Appointment time="12pm" 
+          />
+        ))
+        .add("Header", () => (
+          <Header time="12pm" />
+        ))
+        .add("Empty", () => (
+          <Empty
+            onChange={action("onAdd")} />
         ));
