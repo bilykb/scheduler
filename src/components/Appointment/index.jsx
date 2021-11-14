@@ -5,6 +5,7 @@ export {Header} from "./Header";
 export {Show} from './Show';
 export {Confirm} from './Confirm';
 export {Status} from './Status';
+export {Error} from './Error';
 
 export function Appointment(props) {
 
