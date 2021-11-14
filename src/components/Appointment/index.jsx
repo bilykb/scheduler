@@ -6,6 +6,7 @@ export {Show} from './Show';
 export {Confirm} from './Confirm';
 export {Status} from './Status';
 export {Error} from './Error';
+export {Form} from './Form';
 
 export function Appointment(props) {
 
