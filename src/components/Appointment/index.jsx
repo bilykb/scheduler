@@ -4,6 +4,7 @@ export {Empty} from "./Empty";
 export {Header} from "./Header";
 export {Show} from './Show';
 export {Confirm} from './Confirm';
+export {Status} from './Status';
 
 export function Appointment(props) {
 
