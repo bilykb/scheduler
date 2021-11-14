@@ -4,12 +4,12 @@ import {storiesOf} from "@storybook/react";
 import {action} from "@storybook/addon-actions";
 import "index.scss";
 
-import Button from "/src/components/Button";
+import {Button} from "/src/components/Button";
 import DayListItem from "/src/components/DayListItem";
 import DayList from "/src/components/DayList";
 import InterviewerListItem from '/src/components/InterviewerListItem';
 import InterviewerList from '/src/components/InterviewerList';
-import {Header, Empty, Appointment, Show} from "components/Appointment";
+import {Header, Empty, Appointment, Show, Confirm} from "components/Appointment";
 
 storiesOf("Button", module)
   .addParameters({
@@ -155,4 +155,12 @@ storiesOf("DayList", module)
           onEdit={action("onEdit")} 
           onDelete={action("onDelete")}
           />
-        ));
+        ))
+        .add("Confirm", () => (
+          <Confirm
+          message="Delete the appointment?"
+          onCancel={action("onCancel")}
+          onConfirm={action("onConfirm")}
+          danger
+          />
+        ))
