@@ -9,7 +9,7 @@ import DayListItem from "/src/components/DayListItem";
 import DayList from "/src/components/DayList";
 import InterviewerListItem from '/src/components/InterviewerListItem';
 import InterviewerList from '/src/components/InterviewerList';
-import {Header, Empty, Appointment, Show, Confirm, Status} from "components/Appointment";
+import {Header, Empty, Appointment, Show, Confirm, Status, Error} from "components/Appointment";
 
 storiesOf("Button", module)
   .addParameters({
@@ -140,11 +140,13 @@ storiesOf("DayList", module)
         })
         .add("Appointment", () => <Appointment />)
         .add("Appointment with Time", () => (
-          <Appointment time="12pm" 
+          <Appointment 
+          time="12pm" 
           />
         ))
         .add("Header", () => (
-          <Header time="12pm" />
+          <Header 
+          time="12pm" />
         ))
         .add("Empty", () => (
           <Empty
@@ -168,4 +170,10 @@ storiesOf("DayList", module)
           <Status
           message="Deleting"
           />
-        ));
+        ))
+        .add("Error", () => (
+          <Error 
+          message="Could not delete appointment"
+          onClose={action("onClose")}
+          />
+        ))
