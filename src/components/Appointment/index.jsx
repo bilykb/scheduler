@@ -3,6 +3,7 @@ import "./styles.scss"
 export {Empty} from "./Empty";
 export {Header} from "./Header";
 export {Show} from './Show';
+export {Confirm} from './Confirm';
 
 export function Appointment(props) {
 
