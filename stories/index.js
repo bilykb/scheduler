@@ -9,7 +9,7 @@ import DayListItem from "/src/components/DayListItem";
 import DayList from "/src/components/DayList";
 import InterviewerListItem from '/src/components/InterviewerListItem';
 import InterviewerList from '/src/components/InterviewerList';
-import {Header, Empty, Appointment, Show, Confirm} from "components/Appointment";
+import {Header, Empty, Appointment, Show, Confirm, Status} from "components/Appointment";
 
 storiesOf("Button", module)
   .addParameters({
@@ -164,3 +164,8 @@ storiesOf("DayList", module)
           danger
           />
         ))
+        .add("Status", () => (
+          <Status
+          message="Deleting"
+          />
+        ));
