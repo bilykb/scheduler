@@ -9,7 +9,7 @@ import DayListItem from "/src/components/DayListItem";
 import DayList from "/src/components/DayList";
 import InterviewerListItem from '/src/components/InterviewerListItem';
 import InterviewerList from '/src/components/InterviewerList';
-import {Header, Empty, Appointment} from "components/Appointment";
+import {Header, Empty, Appointment, Show} from "components/Appointment";
 
 storiesOf("Button", module)
   .addParameters({
@@ -63,7 +63,7 @@ storiesOf("DayList", module)
   .add("Monday", () => (
     <DayList days={days} day={"Monday"} onChange={action("setDay")} />
   ))
-  .add("Tuesday", () => (
+  .add("Tuesday",() => (
     <DayList days={days} day={"Tuesday"} onChange={action("setDay")} />
   ))
   .add("Wednesday", () => (
@@ -149,4 +149,10 @@ storiesOf("DayList", module)
         .add("Empty", () => (
           <Empty
             onChange={action("onAdd")} />
+        ))
+        .add("Show", () => (
+          <Show 
+          onEdit={action("onEdit")} 
+          onDelete={action("onDelete")}
+          />
         ));
