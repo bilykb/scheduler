@@ -4,12 +4,12 @@ import {storiesOf} from "@storybook/react";
 import {action} from "@storybook/addon-actions";
 import "index.scss";
 
-import {Button} from "/src/components/Button";
+import { Button } from "/src/components/Button";
 import DayListItem from "/src/components/DayListItem";
 import DayList from "/src/components/DayList";
 import InterviewerListItem from '/src/components/InterviewerListItem';
 import InterviewerList from '/src/components/InterviewerList';
-import {Header, Empty, Appointment, Show, Confirm, Status, Error} from "components/Appointment";
+import {Form, Header, Empty, Appointment, Show, Confirm, Status, Error} from "components/Appointment";
 
 storiesOf("Button", module)
   .addParameters({
@@ -67,7 +67,7 @@ storiesOf("DayList", module)
     <DayList days={days} day={"Tuesday"} onChange={action("setDay")} />
   ))
   .add("Wednesday", () => (
-      <DayList days={days} day={"Wednesday"} onChange={action("setDay")} />
+    <DayList days={days} day={"Wednesday"} onChange={action("setDay")} />
   ));
 
   const interviewer = {
@@ -124,7 +124,7 @@ storiesOf("DayList", module)
       .add("Selected", () => (
         <InterviewerList
           interviewers={interviewers}
-          value={3}
+          selectedInterviewerId={3}
         />
       ))
       .add("Clickable", () => (
@@ -175,5 +175,21 @@ storiesOf("DayList", module)
           <Error 
           message="Could not delete appointment"
           onClose={action("onClose")}
+          />
+        ))
+        .add("Edit", () => (
+          <Form 
+          student=""
+          interviewer={interviewer.id}
+          interviewers={interviewers}
+          onSave={action("onSave")}
+          onCancel={action("onCancel")}
+          />
+        ))
+        .add("Create", () => (
+          <Form 
+          interviewers={interviewers}
+          onSave={action("onSave")}
+          onCancel={action("onCancel")}
           />
         ))
