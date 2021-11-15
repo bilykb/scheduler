@@ -5,6 +5,7 @@ import { Button } from '../Button';
 export function Form(props) {
   const [student, setStudent] = useState(props.student || "")
   const [interviewerId, setInterviewerId] = useState(props.interviewer || null);
+  
   const resetInterviewForm = () => {
     setStudent("")
     setInterviewerId(null);
@@ -25,7 +26,7 @@ export function Form(props) {
               type="text"
               placeholder="Enter Student Name"
               value={student}
-              onChange={(event) => setStudent(event.target.value)}
+              onChange={event => setStudent(event.target.value)}
             />
           </form>
           <InterviewerList 
