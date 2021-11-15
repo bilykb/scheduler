@@ -1,4 +1,5 @@
 import React from "react";
+import {Header, Show, Empty} from "./";
 import "./styles.scss"
 export {Empty} from "./Empty";
 export {Header} from "./Header";
@@ -10,8 +11,12 @@ export {Form} from './Form';
 
 export function Appointment(props) {
 
+  const appointmentYesNo = props.interview ? <Show student={props.interview.student} interviewer={props.interview.interviewer.name}/> : <Empty />
   return (
-    <article className="appointment"></article>
+    <article className="appointment">
+      <Header time={props.time} />
+      {appointmentYesNo}
+    </article>
   )
 }
 
