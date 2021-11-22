@@ -8,7 +8,7 @@ export function Empty(props) {
         className="appointment__add-button"
         src="images/add.png"
         alt="Add"
-        onClick={props.onChange}
+        onClick={props.onAdd}
       />
     </main>
   );
