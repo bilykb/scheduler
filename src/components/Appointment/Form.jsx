@@ -13,7 +13,7 @@ export function Form(props) {
 
   const cancelInterviewForm = () => {
     resetInterviewForm();
-    return props.onCancel;
+    return props.onCancel();
   }
 
   return (
