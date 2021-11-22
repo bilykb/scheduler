@@ -26,3 +26,13 @@ export function getInterview(state, interview) {
 
   }
 }
+
+export function getInterviewersForDay(state, day) {
+  const currentDay = state.days.find(dayObject => dayObject.name.toLowerCase() === day.toLowerCase())
+
+  if(state.days.length === 0 || currentDay === undefined) return [];
+  
+  const interviewers = currentDay.interviewers.map(id => state.interviewers[id])
+
+  return interviewers
+}
