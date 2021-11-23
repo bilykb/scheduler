@@ -4,11 +4,11 @@ import { Button } from '../Button';
 
 export function Form(props) {
   const [student, setStudent] = useState(props.student || "")
-  const [interviewerId, setInterviewerId] = useState(props.interviewer || null);
+  const [interviewer, setInterviewer] = useState(props.interviewer || null);
   
   const resetInterviewForm = () => {
     setStudent("")
-    setInterviewerId(null);
+    setInterviewer(null);
   }
 
   const cancelInterviewForm = () => {
@@ -31,14 +31,14 @@ export function Form(props) {
           </form>
           <InterviewerList 
             interviewers={props.interviewers}
-            onChange={setInterviewerId}
-            selectedInterviewerId={interviewerId}
+            onChange={setInterviewer}
+            selectedInterviewer={interviewer}
           />
         </section>
         <section className="appointment__card-right">
           <section className="appointment__actions">
             <Button danger onChange={cancelInterviewForm}>Cancel</Button>
-            <Button confirm onChange={props.onSave}>Save</Button>
+            <Button confirm onChange={() => props.onSave(student, interviewer)}>Save</Button>
           </section>
         </section>
       </main>
