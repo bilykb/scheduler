@@ -14,35 +14,56 @@ export default function Application(props) {
     appointments: {},
     interviewers: {}
   })
+  
   const setDay = day => setState({...state, day});
   
-  useEffect(() => {
+  const bookInterview = (id, interview) => {
     const baseUrl = "http://localhost:8001/api"
-    const getDays = axios.get(`${baseUrl}/days`)
-    const getAppointments = axios.get(`${baseUrl}/appointments`)
-    const getInterviewers = axios.get(`${baseUrl}/interviewers`)
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: {...interview}
+    }
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    }
+
+    return axios.put(`${baseUrl}/appointments/${id}`, {interview})
+    .then(() => {
+      setState({...state,
+        appointments})
+      });
+    };
     
-    Promise.all([getDays, getAppointments, getInterviewers])
+    useEffect(() => {
+      const baseUrl = "http://localhost:8001/api"
+      const getDays = axios.get(`${baseUrl}/days`)
+      const getAppointments = axios.get(`${baseUrl}/appointments`)
+      const getInterviewers = axios.get(`${baseUrl}/interviewers`)
+      
+      Promise.all([getDays, getAppointments, getInterviewers])
       .then(all => {
         setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}))
-      })
-  }, [])
-
-  const dailyAppointments = getAppointmentsForDay(state, state.day)
-  const dailyInterviewers = getInterviewersForDay(state, state.day);
-
-  const schedule = dailyAppointments.map(appointment => {
-    const interview = getInterview(state, appointment.interview);
+      });
+    }, []);
+    
+    const dailyAppointments = getAppointmentsForDay(state, state.day);
+    const dailyInterviewers = getInterviewersForDay(state, state.day);
+    
+    const schedule = dailyAppointments.map(appointment => {
+      const interview = getInterview(state, appointment.interview);
     
     return (
     <Appointment key={appointment.id} 
-    id={appointment.id} 
-    time={appointment.time} 
-    interview={interview} 
-    interviewers={dailyInterviewers}
+      id={appointment.id} 
+      time={appointment.time} 
+      interview={interview} 
+      interviewers={dailyInterviewers}
+      bookInterview={bookInterview}
     />
     )
-  })
+  });
 
   return (
     <main className="layout">
@@ -72,4 +93,4 @@ export default function Application(props) {
       </section>
     </main>
   );
-}
+};
