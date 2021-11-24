@@ -4,6 +4,8 @@ import "components/Application.scss";
 import DayList from './DayList'
 import Appointment from './Appointment'
 import {getAppointmentsForDay, getInterview, getInterviewersForDay} from '../helpers/selectors'
+import { useVisualMode } from "hooks/useVisualMode";
+
 
 
 export default function Application(props) {
@@ -18,7 +20,6 @@ export default function Application(props) {
   const setDay = day => setState({...state, day});
   
   const bookInterview = (id, interview) => {
-    const baseUrl = "http://localhost:8001/api"
 
     const appointment = {
       ...state.appointments[id],
@@ -29,7 +30,7 @@ export default function Application(props) {
       [id]: appointment
     }
 
-    return axios.put(`${baseUrl}/appointments/${id}`, {interview})
+    return axios.put(`/api/appointments/${id}`, {interview})
     .then(() => {
       setState({...state,
         appointments})
@@ -37,10 +38,9 @@ export default function Application(props) {
     };
     
     useEffect(() => {
-      const baseUrl = "http://localhost:8001/api"
-      const getDays = axios.get(`${baseUrl}/days`)
-      const getAppointments = axios.get(`${baseUrl}/appointments`)
-      const getInterviewers = axios.get(`${baseUrl}/interviewers`)
+      const getDays = axios.get(`/api/days`)
+      const getAppointments = axios.get(`/api/appointments`)
+      const getInterviewers = axios.get(`/api/interviewers`)
       
       Promise.all([getDays, getAppointments, getInterviewers])
       .then(all => {
@@ -50,6 +50,16 @@ export default function Application(props) {
     
     const dailyAppointments = getAppointmentsForDay(state, state.day);
     const dailyInterviewers = getInterviewersForDay(state, state.day);
+    
+    const cancelInterview = (id) => {
+      const stateCopy = {...state}
+      
+      return axios.delete(`/api/appointments/${id}`)
+      .then(() => {
+        stateCopy.appointments[id].interview = null
+        setState({...stateCopy})
+      });
+    };
     
     const schedule = dailyAppointments.map(appointment => {
       const interview = getInterview(state, appointment.interview);
@@ -61,6 +71,7 @@ export default function Application(props) {
       interview={interview} 
       interviewers={dailyInterviewers}
       bookInterview={bookInterview}
+      onDelete={cancelInterview}
     />
     )
   });
