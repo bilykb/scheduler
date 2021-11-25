@@ -4,11 +4,11 @@ import "components/Button.scss";
 
 export function Button(props) {
    
-   const {children, confirm, danger, disabled, onChange} = props
+   const {children, confirm, danger, disabled, onClick} = props
    let buttonClass = classNames("button", {"button--confirm": confirm, "button--danger": danger})
 
    return (
-      <button className={buttonClass} onClick={onChange} disabled={disabled}>
+      <button className={buttonClass} onClick={onClick} disabled={disabled}>
          {children}
       </button>
    )
