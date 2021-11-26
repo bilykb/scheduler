@@ -9,9 +9,18 @@ export function useApplicationData() {
     appointments: {},
     interviewers: {}
   })
-  
+
   const setDay = day => setState({...state, day});
   
+  const updateSpots = (days, id, value) => {
+
+    days.forEach((day) => {
+      if(day.appointments.includes(id)) {
+        day.spots = parseInt(day.spots) + value;
+      }
+    })
+  };
+
   const bookInterview = (id, interview) => {
 
     const appointment = {
@@ -25,6 +34,7 @@ export function useApplicationData() {
 
     return axios.put(`/api/appointments/${id}`, {interview})
     .then(() => {
+      updateSpots(state.days, id, -1)
       setState({...state,
         appointments})
       });
@@ -46,9 +56,11 @@ export function useApplicationData() {
     
     return axios.delete(`/api/appointments/${id}`)
     .then(() => {
+      updateSpots(state.days, id, 1)
       stateCopy.appointments[id].interview = null
       setState({...stateCopy})
-    });
+    })
+    .catch(err => console.log(err))
   };
   
   return { state, setDay, bookInterview, cancelInterview }
