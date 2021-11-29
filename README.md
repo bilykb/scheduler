@@ -60,5 +60,5 @@ npm run storybook
 #### Main Page
 <img width="1424" alt="scheduler" src="https://user-images.githubusercontent.com/18246168/143922713-8216573c-f3e0-421a-b6b7-2bc0335d8f53.png">
 
-#### Main Page with new tweet form
+#### Scheduling an appointment
 <img width="1424" alt="scheduler" src="https://user-images.githubusercontent.com/18246168/143922848-facddfb1-8288-4177-993d-25213e8e9e7c.png">
