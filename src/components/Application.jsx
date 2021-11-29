@@ -1,19 +1,19 @@
 import React from 'react';
 import "components/Application.scss";
-import DayList from './DayList'
-import Appointment from './Appointment'
-import { getAppointmentsForDay, getInterview, getInterviewersForDay } from '../helpers/selectors'
-import { useApplicationData } from '../hooks/useApplicationData'
+import DayList from './DayList';
+import Appointment from './Appointment';
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from '../helpers/selectors';
+import { useApplicationData } from '../hooks/useApplicationData';
 
 
-export default function Application(props) {
+export default function Application() {
 
   const {
     state,
     setDay,
     bookInterview,
     cancelInterview
-  } = useApplicationData()
+  } = useApplicationData();
     
     const dailyAppointments = getAppointmentsForDay(state, state.day);
     const dailyInterviewers = getInterviewersForDay(state, state.day);
@@ -32,7 +32,7 @@ export default function Application(props) {
       bookInterview={bookInterview}
       onDelete={cancelInterview}
     />
-    )
+    );
   });
 
   return (

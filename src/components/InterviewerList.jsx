@@ -12,7 +12,7 @@ export default function InterviewList(props) {
       avatar={interviewer.avatar} 
       selected={interviewer.id === props.selectedInterviewer} 
       onChange={() => props.onChange(interviewer.id)}
-      />)
+      />);
   });
 
   return (
@@ -23,4 +23,4 @@ export default function InterviewList(props) {
     </ul>
   </section>
   );
-}
+};

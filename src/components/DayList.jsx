@@ -1,5 +1,5 @@
 import React from "react";
-import DayListItem from "./DayListItem"
+import DayListItem from "./DayListItem";
 
 export default function DayList(props) {
 
@@ -10,8 +10,8 @@ export default function DayList(props) {
       onChange={() => props.onChange(day.name)} 
       spots={day.spots} 
       selected={day.name === props.value} 
-      />)
+      />);
     });
     
   return dayArray;
-}
+};

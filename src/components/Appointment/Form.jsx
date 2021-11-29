@@ -3,18 +3,18 @@ import InterviewerList from '../InterviewerList';
 import { Button } from '../Button';
 
 export function Form(props) {
-  const [student, setStudent] = useState(props.student || "")
+  const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   
   const resetInterviewForm = () => {
     setStudent("")
     setInterviewer(null);
-  }
+  };
 
   const cancelInterviewForm = () => {
     resetInterviewForm();
     return props.onCancel();
-  }
+  };
 
   return (
       <main className="appointment__card appointment__card--create">
@@ -42,5 +42,5 @@ export function Form(props) {
           </section>
         </section>
       </main>
-  )
+  );
 };

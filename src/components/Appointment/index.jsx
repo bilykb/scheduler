@@ -1,10 +1,10 @@
 import React from "react";
 import { useVisualMode } from "hooks/useVisualMode";
-import "./styles.scss"
-import {Header} from './Header'
-import {Show} from './Show'
-import {Empty} from './Empty'
-import {Form} from './Form'
+import "./styles.scss";
+import {Header} from './Header';
+import {Show} from './Show';
+import {Empty} from './Empty';
+import {Form} from './Form';
 import {Confirm} from './Confirm';
 import {Status} from './Status';
 import {Error} from './Error';
@@ -36,8 +36,8 @@ export function Appointment(props) {
     })
     .catch((error) => {
       transition(ERROR_SAVE, true)
-    })
-  }
+    });
+  };
 
   const deleting = () => {
     transition(DELETE, true)
@@ -105,7 +105,7 @@ export function Appointment(props) {
         />
       )}
     </article>
-  )
-}
+  );
+};
 
 export default Appointment;

@@ -1,6 +1,6 @@
 import React from "react";
 import "components/DayListItem.scss";
-import classNames from "classnames"
+import classNames from "classnames";
 
 
 export default function DayListItem(props) {
@@ -14,4 +14,4 @@ export default function DayListItem(props) {
       {props.spots === 1 && <h3 className="text--light">{props.spots} spot remaining</h3>}
     </li>
   );
-}
+};
