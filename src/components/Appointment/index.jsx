@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { useVisualMode } from "hooks/useVisualMode";
 import "./styles.scss";
 import {Header} from './Header';
@@ -20,6 +21,7 @@ const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
 export function Appointment(props) {
+  
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -106,6 +108,14 @@ export function Appointment(props) {
       )}
     </article>
   );
+};
+
+Appointment.propTypes = {
+  bookInterview: PropTypes.func,
+  interview: PropTypes.object,
+  interviewers: PropTypes.array,
+  onDelete: PropTypes.func,
+  time: PropTypes.string
 };
 
 export default Appointment;
