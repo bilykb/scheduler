@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Button} from 'components/Button';
 
 export function Confirm(props) {
@@ -12,4 +13,9 @@ export function Confirm(props) {
         </section>
     </main>
   );
+};
+
+Confirm.propTypes = {
+  bookInterview: PropTypes.func,
+  onDelete: PropTypes.func,
 };

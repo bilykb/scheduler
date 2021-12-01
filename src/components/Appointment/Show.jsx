@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export function Show(props) {
+
   return(
     <main className="appointment__card appointment__card--show">
       <section className="appointment__card-left">
@@ -28,4 +30,11 @@ export function Show(props) {
       </section>
     </main>
   );
+};
+
+Show.propTypes = {
+  interviewer: PropTypes.string,
+  onDelete: PropTypes.func,
+  onEdit: PropTypes.func,
+  student: PropTypes.string
 };

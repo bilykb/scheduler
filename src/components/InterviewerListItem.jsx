@@ -1,8 +1,10 @@
 import React from "react";
 import "components/InterviewerListItem.scss";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 export default function InterviewerListItem(props) {
+
 	let interviewerClass = classNames("interviewers__item", {"interviewers__item--selected": props.selected});
 	let avatarClass = classNames("interviewers__item-image", {"interviewers__item--selected-image": props.selected});
 
@@ -17,4 +19,11 @@ export default function InterviewerListItem(props) {
 			{props.selected && props.name}
 		</li>
 	);
+};
+
+InterviewerListItem.propTypes = {
+	avatar: PropTypes.string,
+	name: PropTypes.string,
+	onChange: PropTypes.func,
+	selected: PropTypes.bool,
 };

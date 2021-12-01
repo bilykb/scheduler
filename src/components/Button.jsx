@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 import "components/Button.scss";
 
 export function Button(props) {
@@ -13,3 +14,7 @@ export function Button(props) {
       </button>
    );
 };
+
+Button.propTypes = {
+   children: PropTypes.string
+ };

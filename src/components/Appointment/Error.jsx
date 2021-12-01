@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export function Error(props) {
 
@@ -16,4 +17,9 @@ export function Error(props) {
       />
     </main>
   );
+};
+
+Error.propTypes = {
+  message: PropTypes.string,
+  onClose: PropTypes.func,
 };

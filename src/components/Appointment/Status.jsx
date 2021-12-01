@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export function Status(props) {
 
@@ -12,4 +13,8 @@ export function Status(props) {
       <h1 className="text--semi-bold">{props.message}</h1>
     </main>
   );
+};
+
+Status.propTypes = {
+  message: PropTypes.string
 };

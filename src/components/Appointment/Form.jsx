@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 import InterviewerList from '../InterviewerList';
 import { Button } from '../Button';
 
 export function Form(props) {
+  
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   
@@ -45,3 +47,10 @@ export function Form(props) {
       </main>
   );
 };
+
+Form.propTypes = {
+  interviewers: PropTypes.array,
+  onCancel: PropTypes.func,
+  onSave: PropTypes.func,
+  student: PropTypes.string
+}

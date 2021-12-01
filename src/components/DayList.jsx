@@ -1,5 +1,6 @@
 import React from "react";
 import DayListItem from "./DayListItem";
+import PropTypes from "prop-types";
 
 export default function DayList(props) {
 
@@ -14,4 +15,10 @@ export default function DayList(props) {
     });
     
   return dayArray;
+};
+
+DayList.propTypes = {
+  days: PropTypes.array.isRequired,
+  onChange: PropTypes.func,
+  value: PropTypes.string
 };
