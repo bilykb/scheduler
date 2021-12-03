@@ -48,7 +48,8 @@ export function Form(props) {
                 setError("Student name cannot be blank");
                 return;
               }
-                props.onSave(student, interviewer)
+                setError("");
+                props.onSave(student, interviewer);
               }}
               >Save</Button>
           </section>
