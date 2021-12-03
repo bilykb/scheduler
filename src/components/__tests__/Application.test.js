@@ -6,13 +6,12 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
-it("defaults to Monday and changes the schedule when a new day is selected", () => {
+it("defaults to Monday and changes the schedule when a new day is selected", async () => {
   const { getByText, findByText } = render(<Application />);
 
-  return findByText("Monday")
-  .then(() => {
-    fireEvent.click(getByText("Tuesday"))
+  await findByText("Monday")
 
-    expect(getByText("Leopold Silvers")).toBeInTheDocument()
-  });
+  fireEvent.click(getByText("Tuesday"))
+
+  expect(getByText("Leopold Silvers")).toBeInTheDocument()
 });
