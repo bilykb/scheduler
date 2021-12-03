@@ -10,6 +10,7 @@ export function Form(props) {
   const [error, setError] = useState("")
   
   const resetInterviewForm = () => {
+    setError("")
     setStudent("")
     setInterviewer(null);
   };
