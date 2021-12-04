@@ -22,6 +22,7 @@ export function useApplicationData() {
   };
 
   const bookInterview = (id, interview) => {
+    const prev = state.appointments[id].interview;
 
     const appointment = {
       ...state.appointments[id],
@@ -34,11 +35,12 @@ export function useApplicationData() {
 
     return axios.put(`/api/appointments/${id}`, {interview})
     .then(() => {
-      updateSpots(state.days, id, -1)
+      if(!prev) updateSpots(state.days, id, -1)
+
       setState({...state,
         appointments})
-      });
-    };
+    });
+  };
     
     useEffect(() => {
       const getDays = axios.get(`/api/days`)
