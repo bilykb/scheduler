@@ -3,7 +3,7 @@ const fixtures = {
     {
       id: 1,
       name: "Monday",
-      appointments: [1, 2],
+      appointments: [ 1,2],
       interviewers: [1, 2],
       spots: 1
     },
@@ -78,5 +78,14 @@ export default {
         data: fixtures.interviewers
       })
     }
+  }),
+  put: jest.fn(() => {
+    const days = [...fixtures.days];
+
+    return Promise.resolve({
+      status: 204,
+      statusText: "No Content",
+      data: days
+    });
   })
-}
+};
