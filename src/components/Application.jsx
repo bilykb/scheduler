@@ -24,7 +24,8 @@ export default function Application() {
       const interview = getInterview(state, appointment.interview);
     
     return (
-    <Appointment key={appointment.id} 
+    <Appointment 
+      key={appointment.id} 
       id={appointment.id} 
       time={appointment.time} 
       interview={interview} 
