@@ -22,7 +22,7 @@ export function useApplicationData() {
   };
 
   const bookInterview = (id, interview) => {
-    const prev = state.appointments[id].interview;
+    const prevInterview = state.appointments[id].interview;
 
     const appointment = {
       ...state.appointments[id],
@@ -35,7 +35,7 @@ export function useApplicationData() {
 
     return axios.put(`/api/appointments/${id}`, {interview})
     .then(() => {
-      if(!prev) updateSpots(state.days, id, -1)
+      if(!prevInterview) updateSpots(state.days, id, -1)
 
       setState({...state,
         appointments})
