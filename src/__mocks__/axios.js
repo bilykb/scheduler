@@ -80,12 +80,17 @@ export default {
     }
   }),
   put: jest.fn(() => {
-    const days = [...fixtures.days];
 
     return Promise.resolve({
       status: 204,
-      statusText: "No Content",
-      data: days
+      statusText: "OK",
     });
+  }),
+  delete: jest.fn(() => {
+
+    return Promise.resolve({
+      status: 204,
+      statusText: "OK",
+    })
   })
 };
