@@ -1,8 +1,9 @@
 import React from "react";
 
-import { render, cleanup, getByAltText, getAllByTestId, fireEvent, prettyDOM, getByPlaceholderText, getByText, waitForElement, queryByText, findByText, findByAltText, getByDisplayValue} from "@testing-library/react";
+import { render, cleanup, getByAltText, getAllByTestId, fireEvent, prettyDOM, getByPlaceholderText, getByText, waitForElement, queryByText, findByText, findByAltText, getByDisplayValue, debug} from "@testing-library/react";
 
 import Application from "components/Application";
+import axios from '__mocks__/axios'
 
 afterEach(cleanup);
 
@@ -87,7 +88,6 @@ describe("Application", () => {
     const deleteOption = getByText(appointment, "Are you sure you would like to Delete?");
     expect(deleteOption).toBeInTheDocument();
     
-    
     fireEvent.click(getByText(appointment, "Confirm"));
     await findByText(appointment, "Deleting");
     
@@ -95,4 +95,4 @@ describe("Application", () => {
     
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
-})
+});

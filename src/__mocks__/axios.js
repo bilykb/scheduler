@@ -1,4 +1,4 @@
-const fixtures = {
+export const fixtures = {
   days: [
     {
       id: 1,
@@ -80,17 +80,15 @@ export default {
     }
   }),
   put: jest.fn(() => {
-
+      return Promise.resolve({
+        status: 204,
+        statusText: "OK",
+      });
+  }),
+  delete: jest.fn(() => {
     return Promise.resolve({
       status: 204,
       statusText: "OK",
     });
-  }),
-  delete: jest.fn(() => {
-
-    return Promise.resolve({
-      status: 204,
-      statusText: "OK",
-    })
   })
 };
