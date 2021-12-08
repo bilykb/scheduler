@@ -45,12 +45,12 @@ export function Appointment(props) {
     transition(DELETE, true)
     props.onDelete(props.id)
     .then(() => {
-      transition(EMPTY);
+      transition(EMPTY)
     })
     .catch((error) => {
       transition(ERROR_DELETE, true)
     })
-  }
+  };
 
   return (
     <article className="appointment" data-testid="appointment">

@@ -62,7 +62,6 @@ export function useApplicationData() {
       stateCopy.appointments[id].interview = null
       setState({...stateCopy})
     })
-    .catch(err => console.log(err))
   };
   
   return { state, setDay, bookInterview, cancelInterview }
