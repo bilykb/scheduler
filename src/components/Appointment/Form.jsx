@@ -45,8 +45,8 @@ export function Form(props) {
           <section className="appointment__actions">
             <Button danger onClick={cancelInterviewForm}>Cancel</Button>
             <Button confirm onClick={() => {
-              if (student === "") {
-                setError("Student name cannot be blank");
+              if (!student || !interviewer) {
+                setError("Please enter all applicable information");
                 return;
               }
                 setError("");

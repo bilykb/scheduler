@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 
 export default function InterviewerListItem(props) {
 
-	let interviewerClass = classNames("interviewers__item", {"interviewers__item--selected": props.selected});
-	let avatarClass = classNames("interviewers__item-image", {"interviewers__item--selected-image": props.selected});
+	const interviewerClass = classNames("interviewers__item", {"interviewers__item--selected": props.selected});
+	const avatarClass = classNames("interviewers__item-image", {"interviewers__item--selected-image": props.selected});
 
 	return (
 		<li className={interviewerClass}>
