@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export function Show(props) {
 
   return(
-    <main className="appointment__card appointment__card--show">
+    <main className="appointment__card appointment__card--show" data-testid='show'>
       <section className="appointment__card-left">
         <h2 className="text--regular">{props.student}</h2>
         <section className="interviewer">

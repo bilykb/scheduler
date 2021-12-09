@@ -43,20 +43,13 @@ describe("Appointment", () => {
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
-    // const day = getAllByTestId(container, "day").find(day => queryByText(day, "Monday"));
-    // expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
-
     const appointment = getAllByTestId(container, "appointment").find(appoint => queryByText(appoint, "Archie Cohen"));
 
     fireEvent.click(getByAltText(appointment, "Delete"));
 
     expect(getByText(appointment, /Are you sure you would like to Delete/i)).toBeInTheDocument();
     
-    // const deleteOption = getByText(appointment, "Are you sure you would like to Delete?");
-    // expect(deleteOption).toBeInTheDocument();
-    
     fireEvent.click(getByText(appointment, "Confirm"));
-    // await findByText(appointment, "Deleting");
 
     expect(getByText(appointment, "Deleting")).toBeInTheDocument();
 
